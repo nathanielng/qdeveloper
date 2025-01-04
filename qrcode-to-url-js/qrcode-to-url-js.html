@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code URL Extractor</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .button:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+        #urlDisplay {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 20px 0;
+            word-break: break-all;
+            min-height: 20px;
+        }
+        .status {
+            margin-top: 10px;
+            color: #4CAF50;
+        }
+        .error {
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code URL Extractor</h1>
+        <p>Copy a QR code image to your clipboard and click the button below to extract the URL</p>
+        <button id="pasteButton" class="button">Paste QR Code</button>
+        <div id="urlDisplay">No URL extracted yet</div>
+        <button id="openUrlButton" class="button" disabled>Open URL</button>
+        <button id="copyUrlButton" class="button" disabled>Copy URL</button>
+        <p id="status" class="status"></p>
+    </div>
+    <canvas id="canvas" style="display: none;"></canvas>
+<script src="qrcode-to-url-js.js"></script>
+</body>
+</html>
